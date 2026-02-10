@@ -7,7 +7,6 @@ import { WorkshopCard } from '../components/workshops/WorkshopCard';
 import { ComboCard } from '../components/combos/ComboCard';
 import { getFeaturedWorkshop, getNonFeaturedWorkshops } from '../data/workshops';
 import { combos } from '../data/combos';
-import { culturals } from '../data/culturals';
 import { useState, useEffect } from 'react';
 
 export const LandingPage = () => {
@@ -68,9 +67,38 @@ export const LandingPage = () => {
                             <span className="text-cyber-cyan neon-text">SEASON 1</span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-white/60 uppercase tracking-wide mb-8 max-w-3xl mx-auto">
-                            5 WORKSHOPS // REAL-WORLD SKILLS // STUDENT FOCUSED
-                        </p>
+                        {/* News Ticker Animation */}
+                        <div className="relative overflow-hidden mb-8 max-w-3xl mx-auto border-t border-b border-cyber-cyan/30 py-3">
+                            <motion.div
+                                className="flex whitespace-nowrap"
+                                animate={{ x: ['0%', '-50%'] }}
+                                transition={{
+                                    x: {
+                                        repeat: Infinity,
+                                        repeatType: 'loop',
+                                        duration: 15,
+                                        ease: 'linear',
+                                    },
+                                }}
+                            >
+                                {[...Array(2)].map((_, i) => (
+                                    <div key={i} className="flex items-center text-lg md:text-xl uppercase tracking-wide">
+                                        <span className="text-cyber-cyan mx-4">★</span>
+                                        <span className="text-white/60">5 WORKSHOPS</span>
+                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-white/60">REAL-WORLD SKILLS</span>
+                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-white/60">STUDENT FOCUSED</span>
+                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-white/60">HANDS-ON LEARNING</span>
+                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-white/60">EXPERT TRAINERS</span>
+                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-white/60">CERTIFICATES INCLUDED</span>
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </div>
 
                         {/* Stats */}
                         <div className="flex flex-wrap justify-center gap-8 mb-12">
@@ -100,19 +128,30 @@ export const LandingPage = () => {
                     </motion.div>
                 </div>
 
-                {/* Scroll Indicator */}
+                {/* Scroll Indicator - Clickable */}
                 <motion.div
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer group"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => {
+                        document.getElementById('featured')?.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }}
                 >
-                    <div className="w-6 h-10 border-2 border-cyber-cyan/50 flex items-start justify-center p-2">
+                    <div className="w-6 h-10 border-2 border-cyber-cyan/50 flex items-start justify-center p-2 group-hover:border-cyber-cyan group-hover:shadow-neon-cyan transition-all duration-300">
                         <motion.div
                             className="w-1 h-2 bg-cyber-cyan"
                             animate={{ y: [0, 12, 0] }}
                             transition={{ duration: 2, repeat: Infinity }}
                         />
                     </div>
+                    <span className="text-xs text-cyber-cyan/60 mt-2 block text-center opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">
+                        Scroll
+                    </span>
                 </motion.div>
             </Section>
 
@@ -163,22 +202,48 @@ export const LandingPage = () => {
                 <h2 className="section-title text-cyber-cyan mb-12">
                     CULTURALS
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {culturals.map((cultural) => (
+
+                {/* Coming Soon Placeholder */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="glass-panel p-12 text-center max-w-2xl mx-auto"
+                >
+                    <motion.div
+                        animate={{
+                            scale: [1, 1.1, 1],
+                            opacity: [0.5, 1, 0.5]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="text-6xl mb-6"
+                    >
+                        🎭
+                    </motion.div>
+                    <h3 className="text-2xl md:text-3xl font-black uppercase text-cyber-cyan mb-4">
+                        EVENTS COMING SOON
+                    </h3>
+                    <p className="text-white/60 uppercase tracking-wide mb-6">
+                        Cultural events will be available soon. Stay tuned for exciting performances, competitions, and more!
+                    </p>
+                    <div className="flex items-center justify-center gap-2">
                         <motion.div
-                            key={cultural.id}
-                            whileHover={{ y: -5 }}
-                            className="glass-panel p-6 text-center group cursor-pointer"
-                        >
-                            <div className="text-4xl mb-3">{cultural.icon}</div>
-                            <h3 className="text-sm font-bold uppercase mb-2 group-hover:text-cyber-cyan transition-colors">
-                                {cultural.title}
-                            </h3>
-                            <p className="text-xs text-white/40 uppercase mb-2">{cultural.category}</p>
-                            <p className="text-xs text-white/60">{cultural.date}</p>
-                        </motion.div>
-                    ))}
-                </div>
+                            animate={{ opacity: [0.3, 1, 0.3] }}
+                            transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                            className="w-2 h-2 bg-cyber-cyan"
+                        />
+                        <motion.div
+                            animate={{ opacity: [0.3, 1, 0.3] }}
+                            transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+                            className="w-2 h-2 bg-cyber-cyan"
+                        />
+                        <motion.div
+                            animate={{ opacity: [0.3, 1, 0.3] }}
+                            transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
+                            className="w-2 h-2 bg-cyber-cyan"
+                        />
+                    </div>
+                </motion.div>
             </Section>
         </div>
     );

@@ -152,7 +152,7 @@ export const workshops = [
         title: 'GITHUB',
         subtitle: 'Version Control & Collaboration',
         price: 'Free',
-        // originalPrice: 59,
+        originalPrice: 0,
         badge: 'ESSENTIAL',
         level: 'BEGINNER',
         duration: '2.5 HOURS',
