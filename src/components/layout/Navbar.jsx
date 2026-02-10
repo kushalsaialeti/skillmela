@@ -1,10 +1,11 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import skillmelaLogo from '../../assets/skillmela-logo.png';
 
 export const Navbar = () => {
     const location = useLocation();
+    const navigate = useNavigate();
 
     const navItems = [
         { label: 'HOME', path: '/' },
@@ -61,14 +62,14 @@ export const Navbar = () => {
                 </div>
                 <div className="flex items-center gap-4">
                     {/* CTA Button */}
-                    <Button variant="secondary" className="hidden md:block">
+                    <Button variant="secondary" className="hidden md:block" onClick={() => navigate('/login')}>
                         LOGIN
                     </Button>
-                    <Button variant="primary" className="hidden md:block">
+                    <Button variant="primary" className="hidden md:block" onClick={() => navigate('/register')}>
                         REGISTER
                     </Button>
                 </div>
-                    
+
                 {/* Mobile Menu Button */}
                 <button className="md:hidden text-cyber-cyan">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
