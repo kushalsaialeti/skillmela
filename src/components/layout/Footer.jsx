@@ -1,84 +1,88 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom"
+import { Instagram, Mail, Linkedin, Github } from "lucide-react"
+import logo from '../../assets/skillmela-logo.png'
 
-export const Footer = () => {
-    const currentYear = new Date().getFullYear();
-
-    return (
-        <footer className="bg-cyber-panel/60 border-t border-cyber-cyan/20 py-12">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                    {/* Brand */}
-                    <div className="col-span-1">
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="w-8 h-8 border-2 border-cyber-cyan flex items-center justify-center">
-                                <div className="w-4 h-4 border-2 border-cyber-cyan border-t-transparent" />
-                            </div>
-                            <span className="text-lg font-black uppercase">
-                                SKILL MELA <span className="text-cyber-cyan">S1</span>
-                            </span>
-                        </div>
-                        <p className="text-sm text-white/60 leading-relaxed">
-                            SEASON 1.0 // PHASE 1.0<br />
-                            ENGINEERING THE NEXT GENERATION OF CYBERNETICS
-                        </p>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-cyber-cyan">
-                            ACCESS POINTS
-                        </h3>
-                        <ul className="space-y-2">
-                            <li><Link to="/" className="text-sm text-white/60 hover:text-cyber-cyan transition-colors">HOME</Link></li>
-                            <li><Link to="/events" className="text-sm text-white/60 hover:text-cyber-cyan transition-colors">WORKSHOPS</Link></li>
-                            <li><Link to="/events" className="text-sm text-white/60 hover:text-cyber-cyan transition-colors">COMBOS</Link></li>
-                            <li><Link to="/archive" className="text-sm text-white/60 hover:text-cyber-cyan transition-colors">ARCHIVE</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Contact */}
-                    <div>
-                        <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-cyber-cyan">
-                            DOWNLINK TERMINAL
-                        </h3>
-                        <ul className="space-y-2">
-                            <li className="text-sm text-white/60">CONTACT@SKILLMELA.AI</li>
-                            <li className="text-sm text-white/60">+91 XXXX XXXXXX</li>
-                            <li className="text-sm text-white/60">HYDERABAD, INDIA</li>
-                        </ul>
-                    </div>
-
-                    {/* Social */}
-                    <div>
-                        <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-cyber-cyan">
-                            SOCIAL CHANNELS
-                        </h3>
-                        <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 border border-cyber-cyan/50 flex items-center justify-center hover:border-cyber-cyan hover:shadow-neon-cyan transition-all">
-                                <span className="text-cyber-cyan">TW</span>
-                            </a>
-                            <a href="#" className="w-10 h-10 border border-cyber-cyan/50 flex items-center justify-center hover:border-cyber-cyan hover:shadow-neon-cyan transition-all">
-                                <span className="text-cyber-cyan">IG</span>
-                            </a>
-                            <a href="#" className="w-10 h-10 border border-cyber-cyan/50 flex items-center justify-center hover:border-cyber-cyan hover:shadow-neon-cyan transition-all">
-                                <span className="text-cyber-cyan">LI</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="pt-8 border-t border-cyber-cyan/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-white/40 uppercase tracking-wider">
-                        © {currentYear} DESIGNS FOR CYBERNETICS // SKILL MELA // PHASE 1.0
-                    </p>
-                    <div className="flex gap-6 text-xs text-white/40 uppercase tracking-wider">
-                        <a href="#" className="hover:text-cyber-cyan transition-colors">TWITTER</a>
-                        <a href="#" className="hover:text-cyber-cyan transition-colors">DISCORD</a>
-                        <a href="#" className="hover:text-cyber-cyan transition-colors">GITHUB</a>
-                    </div>
-                </div>
+export function Footer() {
+  return (
+    <footer className="border-t border-cyan-500/20 bg-black/40 backdrop-blur py-12">
+      <div className="container mx-auto px-4">
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <div className="mb-4">
+              <img
+                src={logo}
+                alt="Skill Mela Logo"
+                className="h-auto w-auto max-w-[90px]"
+              />
             </div>
-        </footer>
-    );
-};
+            <p className="text-gray-400 text-xs leading-relaxed">
+              Empowering the next generation of builders with cutting-edge skills and industry connections.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-bold uppercase mb-4 text-sm">NAVIGATION</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="#workshops" className="text-gray-400 hover:text-cyan-400 transition text-xs">
+                  WORKSHOPS
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="text-gray-400 hover:text-cyan-400 transition text-xs">
+                  PRICING
+                </a>
+              </li>
+              <li>
+                <Link to="/about" className="text-gray-400 hover:text-cyan-400 transition text-xs">
+                  ABOUT
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Socials */}
+          <div>
+            <h4 className="font-bold uppercase mb-4 text-sm">CONNECT</h4>
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-400 hover:text-cyan-400 transition">
+                <Instagram size={18} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-cyan-400 transition">
+                <Linkedin size={18} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-cyan-400 transition">
+                <Github size={18} />
+              </a>
+              <a href="mailto:info@skillmela.in" className="text-gray-400 hover:text-cyan-400 transition">
+                <Mail size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-700/50 my-8" />
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col md:flex-row items-center justify-between text-gray-500 text-xs gap-4">
+          <p>© 2025 SKILL MELA. ALL RIGHTS RESERVED.</p>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="hover:text-cyan-400 transition">
+              PRIVACY
+            </Link>
+            <span>•</span>
+            <Link to="/terms" className="hover:text-cyan-400 transition">
+              TERMS
+            </Link>
+            <span>•</span>
+            <span className="text-cyan-400">STATUS: OPERATIONAL</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}

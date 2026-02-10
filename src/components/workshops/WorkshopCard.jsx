@@ -45,7 +45,7 @@ export const WorkshopCard = ({ workshop }) => {
                                     {workshop.level}
                                 </span>
                             </div>
-                            <h3 className={`text-2xl font-black uppercase tracking-tight mb-1 ${colorMap[workshop.color]}`}>
+                            <h3 className={`text-xl sm:text-2xl font-black uppercase tracking-tight mb-1 ${colorMap[workshop.color]}`}>
                                 {workshop.title}
                             </h3>
                             <p className="text-sm text-white/60 uppercase tracking-wide">
@@ -72,10 +72,10 @@ export const WorkshopCard = ({ workshop }) => {
                     </div>
 
                     {/* Price & CTA */}
-                    <div className="flex items-end justify-between pt-4 border-t border-white/10">
+                    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 pt-4 border-t border-white/10">
                         <div>
                             <div className="flex items-baseline gap-2">
-                                <span className={`text-3xl font-black ${colorMap[workshop.color]}`}>
+                                <span className={`text-2xl sm:text-3xl font-black ${colorMap[workshop.color]}`}>
                                     ₹{workshop.price}
                                 </span>
                                 <span className="text-sm text-white/40 line-through">

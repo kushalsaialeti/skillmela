@@ -51,7 +51,7 @@ export const ComboCard = ({ combo }) => {
                         <span className={`text-xs font-bold uppercase tracking-widest ${colors.text} opacity-60`}>
                             {combo.subtitle}
                         </span>
-                        <h3 className={`text-2xl font-black uppercase tracking-tight mt-2 ${colors.text}`}>
+                        <h3 className={`text-xl sm:text-2xl font-black uppercase tracking-tight mt-2 ${colors.text}`}>
                             {combo.title}
                         </h3>
                     </div>
@@ -99,7 +99,7 @@ export const ComboCard = ({ combo }) => {
                     {/* Pricing */}
                     <div className="mb-6">
                         <div className="flex items-baseline gap-3 mb-2">
-                            <span className={`text-4xl font-black ${colors.text}`}>
+                            <span className={`text-3xl sm:text-4xl font-black ${colors.text}`}>
                                 ₹{combo.price}
                             </span>
                             <span className="text-lg text-white/40 line-through">

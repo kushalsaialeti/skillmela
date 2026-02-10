@@ -9,9 +9,9 @@ export const FeaturedWorkshop = ({ workshop }) => {
 
     return (
         <Card className="relative overflow-hidden" neonBorder>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                 {/* Left: Visual */}
-                <div className="relative h-[400px] md:h-[500px] bg-cyber-dark/50 flex items-center justify-center overflow-hidden">
+                <div className="relative h-56 sm:h-72 md:h-[500px] bg-cyber-dark/50 flex items-center justify-center overflow-hidden">
                     <WorkshopVisuals type={workshop.animationType} />
 
                     {/* System Status Overlay */}
@@ -29,15 +29,15 @@ export const FeaturedWorkshop = ({ workshop }) => {
                 </div>
 
                 {/* Right: Content */}
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center md:pl-2">
                     <div className="mb-6">
                         <span className="text-cyber-cyan text-sm font-bold uppercase tracking-widest">
                             ★ FEATURED WORKSHOP
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mt-2 mb-3">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight mt-2 mb-3">
                             {workshop.title}
                         </h2>
-                        <p className="text-lg text-cyber-cyan uppercase tracking-wide mb-4">
+                        <p className="text-base sm:text-lg text-cyber-cyan uppercase tracking-wide mb-4">
                             {workshop.subtitle}
                         </p>
                         <p className="text-white/70 leading-relaxed">
@@ -66,7 +66,7 @@ export const FeaturedWorkshop = ({ workshop }) => {
                     </div>
 
                     {/* Meta Grid */}
-                    <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 text-sm">
                         <div>
                             <span className="text-white/40 uppercase block mb-1 text-xs">Level</span>
                             <span className="text-white font-bold">{workshop.level}</span>
@@ -82,10 +82,10 @@ export const FeaturedWorkshop = ({ workshop }) => {
                     </div>
 
                     {/* Price & CTA */}
-                    <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-white/10">
                         <div>
                             <div className="flex items-baseline gap-3">
-                                <span className="text-5xl font-black text-cyber-cyan">
+                                <span className="text-4xl sm:text-5xl font-black text-cyber-cyan">
                                     ₹{workshop.price}
                                 </span>
                                 <span className="text-lg text-white/40 line-through">
@@ -96,7 +96,7 @@ export const FeaturedWorkshop = ({ workshop }) => {
                                 ● {workshop.certificate}
                             </span>
                         </div>
-                        <div className="flex gap-3">
+                        <div className="flex flex-col sm:flex-row gap-3">
                             <Button
                                 variant="secondary"
                                 onClick={() => navigate(`/workshop/${workshop.id}`)}
