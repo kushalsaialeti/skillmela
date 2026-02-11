@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
@@ -6,6 +7,7 @@ import skillmelaLogo from '../../assets/skillmela-logo.png';
 export const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const navItems = [
         { label: 'HOME', path: '/' },
@@ -15,11 +17,22 @@ export const Navbar = () => {
 
     const isActive = (path) => location.pathname === path;
 
+    useEffect(() => {
+        const onScroll = () => setIsScrolled(window.scrollY > 24);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <motion.nav
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyber-cyan/20"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                isScrolled
+                    ? 'mx-3 mt-3 rounded-2xl bg-black/40 backdrop-blur-md border border-cyber-cyan/20 shadow-lg'
+                    : 'bg-transparent border-b border-transparent'
+                }`}
         >
             <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
                 {/* Logo */}
