@@ -39,11 +39,11 @@ export const Footer = () => {
                     {/* Contact */}
                     <div>
                         <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-cyber-cyan">
-                            DOWNLINK TERMINAL
+                            Contact us
                         </h3>
                         <ul className="space-y-2">
-                            <li className="text-sm text-white/60">CONTACT@SKILLMELA.AI</li>
-                            <li className="text-sm text-white/60">+91 XXXX XXXXXX</li>
+                            <li className="text-sm text-white/60">paieactivities01@gmail.com</li>
+                            <li className="text-sm text-white/60">+91 </li>
                             <li className="text-sm text-white/60">HYDERABAD, INDIA</li>
                         </ul>
                     </div>

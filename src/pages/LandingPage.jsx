@@ -85,15 +85,15 @@ export const LandingPage = () => {
                                     <div key={i} className="flex items-center text-lg md:text-xl uppercase tracking-wide">
                                         <span className="text-cyber-cyan mx-4">★</span>
                                         <span className="text-white/60">5 WORKSHOPS</span>
-                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-cyber-cyan mx-4">★</span>
                                         <span className="text-white/60">REAL-WORLD SKILLS</span>
-                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-cyber-cyan mx-4">★</span>
                                         <span className="text-white/60">STUDENT FOCUSED</span>
-                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-cyber-cyan mx-4">★</span>
                                         <span className="text-white/60">HANDS-ON LEARNING</span>
-                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-cyber-cyan mx-4">★</span>
                                         <span className="text-white/60">EXPERT TRAINERS</span>
-                                        <span className="text-cyber-cyan mx-4">*</span>
+                                        <span className="text-cyber-cyan mx-4">★</span>
                                         <span className="text-white/60">CERTIFICATES INCLUDED</span>
                                     </div>
                                 ))}
